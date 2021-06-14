@@ -1,11 +1,14 @@
 # Saved search alerts with Firebase
 
-This sample app show how you can "save" a search and then automatically notify when new items match the saved search.
+This sample app shows how you can "save" a search. The app automatically notifies you when new matching items become available.
+Saved searches are great for automating repetitive search queries, and to keep up to date with changing content.
 
 ## Features
 
+With this sample app, you can:
+
 - 💾 🔎 Save a search
-- 🆕 📨 Automatically be notified about new items matching your saved search
+- 🆕 📨 Automatically get notified about new items matching your saved search
 - 🔄 🔎 Manually replay your saved search
 
 ## Demo (Try it yourself!)
@@ -14,10 +17,10 @@ This sample app show how you can "save" a search and then automatically notify w
 
 ## How to run the sample app locally
 
-This sample application is written in JavaScript/TypeScript and contains:
+This sample application is written in JavaScript/TypeScript and has two parts:
 
-- [A React frontend](src)
-- [Firebase Cloud Functions](functions)
+- [A React front end](src)
+- [Firebase Cloud Functions](functions) in the back end
 
 ### 1. Clone this repository
 
@@ -47,6 +50,7 @@ REACT_APP_ALGOLIA_API_KEY=<replace-with-your-algolia-api-key>
 [Create and populate an index](https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/).
 
 The sample app expects the index records to have the following shape:
+
 ```json
 {
   "surface": 285,
@@ -59,9 +63,9 @@ The sample app expects the index records to have the following shape:
 }
 ```
 
-If you don't have any data yet, your can use [the one provided in this repository](sample/real_estate_classified.json).
+If you don't have any data yet, your can use [the provided data set from this repository](sample/real_estate_classified.json).
 
-To upload your data, you can use the [Algolia dashboard](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-from-the-dashboard/) or use on of Algolia's [API clients](https://www.algolia.com/developers/#integrations).
+To upload your data, you can use the [Algolia dashboard](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-from-the-dashboard/) or use one of Algolia's [API clients](https://www.algolia.com/developers/#integrations).
 
 After creating the index and uploading the data, set the environment variable `REACT_APP_ALGOLIA_INDEX_NAME` in the `.env` file:
 
@@ -71,8 +75,8 @@ REACT_APP_ALGOLIA_INDEX_NAME=<replace-with-your-algolia-index-name>
 
 ### 4. Set up your Firebase Database and Cloud Functions
 
-[**** Setup Firebase](https://firebase.google.com/docs/web/setup) to be able to create your database and deploy your Cloud Functions.
-In the `.env` file, set the `REACT_APP_FIREBASE_PROJECT_ID` and `REACT_APP_FIREBASE_API_KEY` environment variables :
+[Setup Firebase](https://firebase.google.com/docs/web/setup) to be able to create your database and deploy your Cloud Functions.
+In the `.env` file, set the `REACT_APP_FIREBASE_PROJECT_ID` and `REACT_APP_FIREBASE_API_KEY` environment variables:
 
 ```bash
 REACT_APP_FIREBASE_PROJECT_ID=<your-firebase-project-id>
@@ -81,11 +85,11 @@ REACT_APP_FIREBASE_API_KEY=<your-firebase-api-key>
 
 ### 5. Setup and upload your [Firebase Cloud Function](https://firebase.google.com/docs/functions)
 
-If you don't have it installed already, [install the firebase CLI](https://firebase.google.com/docs/web/setup#install-cli-deploy).
+If you don't have it installed already, [install the Firebase CLI](https://firebase.google.com/docs/web/setup#install-cli-deploy).
 
 Set up the environment configuration for your project.
 
-Exemple for [Twillio SendGrid](https://www.twilio.com/sendgrid/email-api) and [Twillio](https://www.twilio.com/docs/sms/send-messages):
+For example, the environment for [Twillio SendGrid](https://www.twilio.com/sendgrid/email-api) and [Twillio](https://www.twilio.com/docs/sms/send-messages):
 
 ```bash
 firebase functions:config:set \
