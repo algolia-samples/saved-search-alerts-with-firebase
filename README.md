@@ -20,7 +20,7 @@ With this sample app, you can:
 This sample application is written in JavaScript/TypeScript and has two parts:
 
 - [A React front end](src)
-- [Firebase Cloud Functions](functions) in the back end
+- [Firebase Cloud Functions](functions) as a back end
 
 ### 1. Clone this repository
 
