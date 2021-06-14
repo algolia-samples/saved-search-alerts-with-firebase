@@ -1,7 +1,8 @@
 # Saved search alerts with Firebase
 
 This sample app shows how you can "save" a search. The app automatically notifies you when new matching items become available.
-Saved searches are great for automating repetitive search queries, and to keep up to date with changing content.
+Saved searches are great for automating repetitive search queries, and to keep up to date with changing content,
+for example, on websites with real-estate listings and online marketplaces.
 
 ## Features
 
