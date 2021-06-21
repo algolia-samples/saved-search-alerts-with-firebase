@@ -4,6 +4,8 @@ This sample app shows how you can "save" a search. The app automatically notifie
 Saved searches are great for automating repetitive search queries, and to keep up to date with changing content,
 for example, on websites with real-estate listings and online marketplaces.
 
+<img src="sample/schema.png?raw=true" alt="A flowchart of the saved search alerts sample" align="center">
+
 ## Features
 
 With this sample app, you can:
