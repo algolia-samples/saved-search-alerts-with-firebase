@@ -28,7 +28,7 @@ This sample application is written in JavaScript/TypeScript and has two parts:
 ### 1. Clone this repository
 
 ```bash
-git clone https://github.com/algolia-samples/saved-search-alerts
+git clone https://github.com/algolia-samples/saved-search-alerts-with-firebase
 ```
 
 Copy the file `.env.example` and rename it to `.env.`:
