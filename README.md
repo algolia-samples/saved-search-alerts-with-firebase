@@ -10,9 +10,13 @@ for example, on websites with real-estate listings and online marketplaces.
 
 With this sample app, you can:
 
-- 💾 🔎 Save a search
-- 🆕 📨 Automatically get notified about new items matching your saved search
-- 🔄 🔎 Manually replay your saved search
+💾 🔎 **Save a search**
+
+The sample app shows you how to serialize and save the state of a given search (query and facets) using Algolia [React InstantSearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/react/) and the [Algolia JS Helper](https://community.algolia.com/algoliasearch-helper-js/) (**1**). We are using [Cloud Firestore](https://firebase.google.com/docs/firestore) to store the serialized search state (**2**) and the user's email address and phone number.
+
+🆕 📨 **Automatically get notified about new items matching your saved search**
+
+Using [Firebase Schedule Functions](https://firebase.google.com/docs/functions/schedule-functions), we regularly run the search (**3**) to find new matching items. We then notify the users via email, SMS, or In-App notifications (**5**), using providers like [Twillio SMS Service](https://www.twilio.com/sms), [Twillio SendGrid](https://www.twilio.com/sendgrid/email-api), [Amazon SES](https://aws.amazon.com/en/ses/).
 
 ## Demo (Try it yourself!)
 
