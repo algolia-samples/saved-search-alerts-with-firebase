@@ -8,7 +8,7 @@ for example, on websites with real-estate listings and online marketplaces.
 
 ## Features
 
-With this sample app, you can:
+The sample app implement the following features:
 
 💾 🔎 **Save a search**
 
@@ -18,9 +18,9 @@ The sample app shows you how to serialize and save the state of a given search (
 
 Using [Firebase Schedule Functions](https://firebase.google.com/docs/functions/schedule-functions), we regularly run the search (**3**) to find new matching items. We then notify the users via email, SMS, or In-App notifications (**5**), using providers like [Twillio SMS Service](https://www.twilio.com/sms), [Twillio SendGrid](https://www.twilio.com/sendgrid/email-api), [Amazon SES](https://aws.amazon.com/en/ses/).
 
-## Demo (Try it yourself!)
+## Demo
 
-
+<img src="demo/saved_search_alerts.gif?raw=true" alt="A short movie displaying the Algolia saved search alerts sample app" align="center" width="600">
 
 ## How to run the sample app locally
 
