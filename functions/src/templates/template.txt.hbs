@@ -1,0 +1,7 @@
+{{nbHits}} new results for your saved search 🔎
+
+{{#each hits}}
+{{this.price}}$ - {{this.surface}} sq. ft.
+{{#each this.features}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}
+
+{{/each}}
