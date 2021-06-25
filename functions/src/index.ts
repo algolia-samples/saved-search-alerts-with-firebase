@@ -1,5 +1,9 @@
+import * as fs from "fs";
+import * as path from "path";
+
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
+import * as handlebars from "handlebars";
 import "firebase-functions";
 import algoliasearch from "algoliasearch";
 
@@ -48,12 +52,22 @@ export const searchAlertNotifier = functions.pubsub.schedule(
       // New results were found!
       // Let's build the notification's contents.
       const messageTitle = `${nbHits} new results for your saved search 🔎`;
-      const messageContent = `${nbHits} new results for your saved search 🔎`;
+
+      // Message contents using Handlebars
+      const htmlTemplate = fs.readFileSync(path.resolve(__dirname,'./templates/template.html.hbs'), 'utf-8');
+      const htmlTemplateHBS = handlebars.compile(htmlTemplate);
+
+      const textTemplate = fs.readFileSync(path.resolve(__dirname,'./templates/template.txt.hbs'), 'utf-8');
+      const textTemplateHBS = handlebars.compile(textTemplate);
+
+      const templateData = {nbHits, hits};
+      const messageContentHTML = htmlTemplateHBS(templateData);
+      const messageContentText = textTemplateHBS(templateData);
 
       // Mail notification.
       if (data.email) {
         try {
-          await sendMail(data.email, messageTitle, messageContent);
+          await sendMail(data.email, messageTitle, messageContentText, messageContentHTML);
         } catch (e) {
           functions.logger.error(e);
         }
@@ -62,7 +76,7 @@ export const searchAlertNotifier = functions.pubsub.schedule(
       // Text notification
       if (data.phone) {
         try {
-          await sendSMS(data.phone, messageContent);
+          await sendSMS(data.phone, messageContentText);
         } catch (e) {
           functions.logger.error(e);
         }
